@@ -1,0 +1,7 @@
+C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\bin\Debug\Biblioteca.exe.config
+C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\bin\Debug\Biblioteca.exe
+C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\bin\Debug\Biblioteca.pdb
+C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\obj\Debug\Biblioteca.csprojAssemblyReference.cache
+C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\obj\Debug\Biblioteca.exe
+C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\obj\Debug\Biblioteca.pdb
+C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
