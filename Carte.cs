@@ -13,11 +13,19 @@ namespace Biblioteca
         string editura;
         int cod;
         static int nextID;
-        public Carte(string _titlu="", string _autor="", string _editura = "")
+        public Carte(string _titlu = "", string _autor = "", string _editura = "")
         {
             titlu = _titlu;
             autor = _autor;
             editura = _editura;
+            cod = ++nextID;
+        }
+        public Carte(string date)
+        {
+            string[] infoCarte = date.Split(new string[] { ", " }, StringSplitOptions.None);
+            titlu = infoCarte[0];
+            autor = infoCarte[1];
+            editura = infoCarte[2];
             cod = ++nextID;
         }
         public void setTitlu(string _titlu)

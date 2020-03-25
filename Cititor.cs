@@ -11,10 +11,17 @@ namespace Biblioteca
         string nume;
         string prenume;
         int nrCarti;
-        public Cititor(string _nume="", string _prenume="")
+        public Cititor(string _nume = "", string _prenume = "")
         {
             nume = _nume;
             prenume = _prenume;
+            nrCarti = 0;
+        }
+        public Cititor(string dateCititor)
+        {
+            string[] infoCititor = dateCititor.Split(new string[] { ", " }, StringSplitOptions.None);
+            nume = infoCititor[0];
+            prenume = infoCititor[1];
             nrCarti = 0;
         }
         public void setNume(string _nume)
