@@ -8,57 +8,29 @@ namespace Biblioteca
 {
     class Carte
     {
-        string titlu;
-        string autor;
-        string editura;
-        int cod;
-        static int nextID;
+
+        public static int NextID { get; set; } = 0;
+        public int Cod { get; set; }
+        public string Titlu { get; set; }
+        public string Autor { get; set; }
+        public string Editura { get; set; }
+        public string NumeComplet { get { return Titlu + " - " + Autor + " - " + Editura; } }
+
         public Carte(string _titlu = "", string _autor = "", string _editura = "")
         {
-            titlu = _titlu;
-            autor = _autor;
-            editura = _editura;
-            cod = ++nextID;
+            Titlu = _titlu;
+            Autor = _autor;
+            Editura = _editura;
+            Cod = ++NextID;
         }
         public Carte(string date)
         {
             string[] infoCarte = date.Split(new string[] { ", " }, StringSplitOptions.None);
-            titlu = infoCarte[0];
-            autor = infoCarte[1];
-            editura = infoCarte[2];
-            cod = ++nextID;
+            Titlu = infoCarte[0];
+            Autor = infoCarte[1];
+            Editura = infoCarte[2];
+            Cod = ++NextID;
         }
-        public void setTitlu(string _titlu)
-        {
-            titlu = _titlu;
-        }
-        public void setAutor(string _autor)
-        {
-            autor = _autor;
-        }
-        public void setEditura(string _editura)
-        {
-            editura = _editura;
-        }
-        public string getTitlu()
-        {
-            return titlu;
-        }
-        public string getAutor()
-        {
-            return autor;
-        }
-        public string getEditura()
-        {
-            return editura;
-        }
-        public int getCod()
-        {
-            return cod;
-        }
-        public string NumeComplet()
-        {
-            return getTitlu() + " - " + getAutor() + " - " + getEditura();
-        }
+     
     }
 }

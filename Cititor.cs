@@ -8,49 +8,27 @@ namespace Biblioteca
 {
     class Cititor
     {
-        string nume;
-        string prenume;
-        int nrCarti;
+        private const int MAX_CARTI_IMPRUMUT = 10;
+        public string Nume { get; set; }
+        public string Prenume { get; set; }
+        public int NrCarti { get; set; }
+        public string NumeComplet { get { return Nume + " " + Prenume + " - " + NrCarti.ToString() + " carti"; } }
         public Cititor(string _nume = "", string _prenume = "")
         {
-            nume = _nume;
-            prenume = _prenume;
-            nrCarti = 0;
+            Nume = _nume;
+            Prenume = _prenume;
+            NrCarti = 0;
         }
         public Cititor(string dateCititor)
         {
             string[] infoCititor = dateCititor.Split(new string[] { ", " }, StringSplitOptions.None);
-            nume = infoCititor[0];
-            prenume = infoCititor[1];
-            nrCarti = 0;
-        }
-        public void setNume(string _nume)
-        {
-            nume = _nume;
-        }
-        public void setPrenume(string _prenume)
-        {
-            prenume = _prenume;
-        }
-        public string getNume()
-        {
-            return nume;
-        }
-        public string getPrenume()
-        {
-            return prenume;
-        }
-        public int getNrCarti()
-        {
-            return nrCarti;
-        }
-        public string NumeComplet()
-        {
-            return nume + " " + prenume + " - " + nrCarti.ToString() + " carti";
+            Nume = infoCititor[0];
+            Prenume = infoCititor[1];
+            NrCarti = 0;
         }
         public bool NrMaxCarti()
         {
-            if (Program.TotCartiImprumut == getNrCarti())
+            if (MAX_CARTI_IMPRUMUT == NrCarti)
                 return true;
             return false;
         }

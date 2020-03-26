@@ -5,3 +5,10 @@ C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\obj\Debug\Biblioteca.cspr
 C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\obj\Debug\Biblioteca.exe
 C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\obj\Debug\Biblioteca.pdb
 C:\Users\Madalina\Documents\Mada\Anul 2\PIU\Biblioteca\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\Biblioteca.exe.config
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\Biblioteca.exe
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\Biblioteca.pdb
+C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.csprojAssemblyReference.cache
+C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.exe
+C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.pdb
