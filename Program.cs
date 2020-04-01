@@ -9,6 +9,9 @@ namespace Biblioteca
 {
     class Program
     {
+        public const int MAI_MARE = 1;
+        public const int MAI_MIC = 1;
+        public const int EGAL = 0;
         static void Main(string[] args)
         {
             Carte c1 = new Carte("Harry Potter si prizonierul din Azkaban", "J.K. Rowling", "ARTUR");
@@ -25,6 +28,16 @@ namespace Biblioteca
             Cititor p3 = CitireCititorTastatura();
             Console.WriteLine(c3.NumeComplet);
             Console.WriteLine(p3.NumeComplet);
+            Console.WriteLine("Conversie la sir: ");
+            Console.WriteLine(c3.ConversieLaSir());
+            Console.WriteLine(p3.ConversieLaSir());
+            Console.WriteLine("Comparare:");
+            if (c2.Compara(c3) == MAI_MARE)
+                Console.WriteLine("{0} este mai mare ca {1}", c2.NumeComplet, c3.NumeComplet);
+            else if (c2.Compara(c3) == EGAL)
+                Console.WriteLine("{0} este egal cu {1}", c2.NumeComplet, c3.NumeComplet);
+            else
+                Console.WriteLine("{0} este mai mic ca {1}", c2.NumeComplet, c3.NumeComplet);
             Console.ReadKey();
         }
         public static Carte CitireCarteTastatura()

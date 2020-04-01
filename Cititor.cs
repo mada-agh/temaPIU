@@ -32,5 +32,25 @@ namespace Biblioteca
                 return true;
             return false;
         }
+        public string ConversieLaSir()
+        {
+            return Nume + " " + Prenume + " - " + NrCarti.ToString() + " carti";
+        }
+        public int Compara(Cititor c)
+        {
+            if (this.Nume.CompareTo(c.Nume)==Program.MAI_MARE)
+                return Program.MAI_MARE;
+            else if (this.Nume.CompareTo(c.Nume)==Program.EGAL)
+            {
+                if (this.Prenume.CompareTo(c.Prenume) == Program.MAI_MARE)
+                    return Program.MAI_MARE;
+                else if (this.Prenume.CompareTo(c.Prenume) == Program.EGAL)
+                    return Program.EGAL;
+                else
+                    return Program.MAI_MIC;
+            }
+            else
+                return Program.MAI_MIC;
+        }
     }
 }

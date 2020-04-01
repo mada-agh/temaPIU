@@ -8,7 +8,6 @@ namespace Biblioteca
 {
     class Carte
     {
-
         public static int NextID { get; set; } = 0;
         public int Cod { get; set; }
         public string Titlu { get; set; }
@@ -31,6 +30,25 @@ namespace Biblioteca
             Editura = infoCarte[2];
             Cod = ++NextID;
         }
-     
+        public string ConversieLaSir()
+        {
+            return Titlu + " - " + Autor + " - " + Editura+" - "+Cod.ToString();
+        }
+        public int Compara(Carte c)
+        {
+            if (this.Cod > c.Cod)
+                return Program.MAI_MARE;
+            else if (this.Cod == c.Cod)
+            {
+                if (this.Titlu.CompareTo(c.Titlu) == Program.MAI_MARE)
+                    return Program.MAI_MARE;
+                else if (this.Titlu.CompareTo(c.Titlu) == Program.EGAL)
+                    return Program.EGAL;
+                else
+                    return Program.MAI_MIC;
+            }
+            else
+                return Program.MAI_MIC;
+        }
     }
 }
