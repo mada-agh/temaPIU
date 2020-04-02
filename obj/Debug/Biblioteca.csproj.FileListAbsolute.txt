@@ -12,3 +12,8 @@ C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.csprojAssemblyRe
 C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
 C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.exe
 C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.pdb
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\LibrarieModele.dll
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\NivelAccesDate.dll
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\LibrarieModele.pdb
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\NivelAccesDate.pdb
+C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.csproj.CopyComplete

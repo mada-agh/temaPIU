@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using NivelAccesDate;
+using LibrarieModele;
 
 namespace Biblioteca
 {
@@ -14,30 +15,55 @@ namespace Biblioteca
         public const int EGAL = 0;
         static void Main(string[] args)
         {
-            Carte c1 = new Carte("Harry Potter si prizonierul din Azkaban", "J.K. Rowling", "ARTUR");
-            Cititor p1 = new Cititor("Madalina", "Agheorghiesei");
-            Console.WriteLine("introduceti datele unei carti (titlu, autor, editura)");
-            Carte c2 = new Carte(Console.ReadLine());
-            Console.WriteLine("introduceti datele unui cititor (nume, prenume)");
-            Cititor p2 = new Cititor(Console.ReadLine());
-            Console.WriteLine(c1.NumeComplet);
-            Console.WriteLine(p1.NumeComplet);
-            Console.WriteLine(c2.NumeComplet);
-            Console.WriteLine(p2.NumeComplet);
-            Carte c3 = CitireCarteTastatura();
-            Cititor p3 = CitireCititorTastatura();
-            Console.WriteLine(c3.NumeComplet);
-            Console.WriteLine(p3.NumeComplet);
-            Console.WriteLine("Conversie la sir: ");
-            Console.WriteLine(c3.ConversieLaSir());
-            Console.WriteLine(p3.ConversieLaSir());
-            Console.WriteLine("Comparare:");
-            if (c2.Compara(c3) == MAI_MARE)
-                Console.WriteLine("{0} este mai mare ca {1}", c2.NumeComplet, c3.NumeComplet);
-            else if (c2.Compara(c3) == EGAL)
-                Console.WriteLine("{0} este egal cu {1}", c2.NumeComplet, c3.NumeComplet);
-            else
-                Console.WriteLine("{0} este mai mic ca {1}", c2.NumeComplet, c3.NumeComplet);
+            Carte[] carti;
+
+            //variabila de tip interfata 'IStocareData' care este initializata 
+            //cu o instanta a clasei 'AdministrareStudenti_FisierText' sau o instanta a clasei 'AdministrareStudenti_FisierBinar' in functie de setarea 'FormatSalvare' din fisierul AppConfig
+            IStocareData adminCarti = StocareFactory.GetAdministratorStocare();
+            int nrCarti;
+            carti = adminCarti.GetCarti(out nrCarti);
+            Carte.NextID = nrCarti;
+
+            string optiune;
+            do
+            {
+                Console.WriteLine("L. Listare carti");
+                Console.WriteLine("A. Adaugare carte");
+                Console.WriteLine("M. Modificare carte");
+                Console.WriteLine("X. Inchidere program");
+                Console.WriteLine("Alegeti o optiune");
+                optiune = Console.ReadLine();
+                switch (optiune.ToUpper())
+                {
+                    case "L":
+                        AfisareCarti(carti, nrCarti);
+                        break;
+                    case "A":
+                        Carte s = CitireCarteTastatura();
+                        carti[nrCarti] = s;
+                        nrCarti++;
+                        //adaugare carte in fisier
+                        adminCarti.AddCarte(s);
+                        break;
+                    case "M":
+                        Console.WriteLine("Titlu: ");
+                        string titluMod = Console.ReadLine();
+                        Console.WriteLine("Autor: ");
+                        string autorMod = Console.ReadLine();
+                        Console.WriteLine("Editura: ");
+                        string edituraMod = Console.ReadLine();
+                        s = CautareCarte(titluMod, autorMod,edituraMod, nrCarti, carti);
+                        if (s != null)
+                        {
+                            Console.WriteLine("Cate exemplare detine biblioteca? ");
+                            s.NumarExemplare = Int32.Parse(Console.ReadLine());
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Optiune inexistenta");
+                        break;
+                }
+            } while (optiune.ToUpper() != "X");
             Console.ReadKey();
         }
         public static Carte CitireCarteTastatura()
@@ -59,6 +85,34 @@ namespace Biblioteca
             string prenume = Console.ReadLine();
             Cititor c = new Cititor(nume, prenume);
             return c;
+        }
+        public static Cititor CautareCititor(string nume, string prenume, int nrCititori, Cititor[] cititori)
+        {
+            for (int i = 0; i < nrCititori; i++)
+            {
+                if (String.Equals(nume, cititori[i]) && String.Equals(prenume, cititori[i]))
+                {
+                    return cititori[i];
+                }
+            }
+            return null;
+        }
+        public static void AfisareCarti(Carte[] carti, int nrCarti)
+        {
+            Console.WriteLine("Colectia de carti:");
+            for (int i = 0; i < nrCarti; i++)
+            {
+                Console.WriteLine(carti[i].ConversieLaSir());
+            }
+        }
+        public static Carte CautareCarte(string titluMod, string autorMod, string edituraMod, int nrCarti, Carte[] carti)
+        {
+            for(int i=0; i<nrCarti; i++)
+            {
+                if (titluMod.CompareTo(carti[i].Titlu) == 0 && autorMod.CompareTo(carti[i].Autor) == 0 && edituraMod.CompareTo(carti[i].Editura) == 0)
+                    return carti[i];
+            }
+            return null;
         }
     }
 }

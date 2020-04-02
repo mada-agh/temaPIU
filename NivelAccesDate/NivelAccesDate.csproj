@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{490BDC42-5C79-460A-BB11-5A7954FAF063}</ProjectGuid>
+    <ProjectGuid>{BA0DB240-F7C6-4FEB-B7AB-D834CDB91E0A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Biblioteca</RootNamespace>
-    <AssemblyName>Biblioteca</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>NivelAccesDate</RootNamespace>
+    <AssemblyName>NivelAccesDate</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,7 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,20 +45,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StocareFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LibrarieModele\LibrarieModele.csproj">
-      <Project>{c54c74a8-af18-4cce-ab7e-b5edbc180e04}</Project>
-      <Name>LibrarieModele</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NivelAccesDate\NivelAccesDate.csproj">
-      <Project>{2c651175-39fd-48f3-a8c4-3780dcc6367f}</Project>
-      <Name>NivelAccesDate</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
