@@ -13,7 +13,9 @@ C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.csproj.CoreCompi
 C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.exe
 C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.pdb
 C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\LibrarieModele.dll
-C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\NivelAccesDate.dll
 C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\LibrarieModele.pdb
-C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\NivelAccesDate.pdb
 C:\Users\Madalina\Documents\GitHub\temaPIU\obj\Debug\Biblioteca.csproj.CopyComplete
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\NivelAccesDate1.dll
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\NivelAccesDate2.dll
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\NivelAccesDate1.pdb
+C:\Users\Madalina\Documents\GitHub\temaPIU\bin\Debug\NivelAccesDate2.pdb

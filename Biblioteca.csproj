@@ -57,9 +57,13 @@
       <Project>{c54c74a8-af18-4cce-ab7e-b5edbc180e04}</Project>
       <Name>LibrarieModele</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NivelAccesDate\NivelAccesDate.csproj">
-      <Project>{2c651175-39fd-48f3-a8c4-3780dcc6367f}</Project>
-      <Name>NivelAccesDate</Name>
+    <ProjectReference Include="..\NivelAccesDate1\NivelAccesDate1.csproj">
+      <Project>{6d687a07-052b-490f-9e79-b709235c0ff6}</Project>
+      <Name>NivelAccesDate1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NivelAccesDate2\NivelAccesDate2.csproj">
+      <Project>{a28f739c-0818-4107-b054-745ea255fc40}</Project>
+      <Name>NivelAccesDate2</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
