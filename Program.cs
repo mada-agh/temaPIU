@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NivelAccesDate;
+using NivelAccesDate1;
 using LibrarieModele;
+using NivelAccesDate2;
 
 namespace Biblioteca
 {
     class Program
     {
-        public const int MAI_MARE = 1;
-        public const int MAI_MIC = 1;
-        public const int EGAL = 0;
         static void Main(string[] args)
         {
             Carte[] carti;
 
             //variabila de tip interfata 'IStocareData' care este initializata 
             //cu o instanta a clasei 'AdministrareStudenti_FisierText' sau o instanta a clasei 'AdministrareStudenti_FisierBinar' in functie de setarea 'FormatSalvare' din fisierul AppConfig
-            IStocareData adminCarti = StocareFactory.GetAdministratorStocare();
+            IStocareData1 adminCarti = StocareFactory.GetAdministratorStocare1();
             int nrCarti;
             carti = adminCarti.GetCarti(out nrCarti);
             Carte.NextID = nrCarti;
@@ -27,12 +25,7 @@ namespace Biblioteca
             string optiune;
             do
             {
-                Console.WriteLine("L. Listare carti");
-                Console.WriteLine("A. Adaugare carte");
-                Console.WriteLine("M. Modificare carte");
-                Console.WriteLine("X. Inchidere program");
-                Console.WriteLine("Alegeti o optiune");
-                optiune = Console.ReadLine();
+                optiune = Meniu();
                 switch (optiune.ToUpper())
                 {
                     case "L":
@@ -55,16 +48,35 @@ namespace Biblioteca
                         s = CautareCarte(titluMod, autorMod,edituraMod, nrCarti, carti);
                         if (s != null)
                         {
+                            int n;
                             Console.WriteLine("Cate exemplare detine biblioteca? ");
-                            s.NumarExemplare = Int32.Parse(Console.ReadLine());
+                            bool rez = Int32.TryParse(Console.ReadLine(), out n);
+                            if (rez == true)
+                            {
+                                s.NumarExemplare = n;
+                                if (adminCarti.UpdateCarte(carti, s.Cod) == true)
+                                    Console.WriteLine("S-a actualizat fisierul cu succes");
+                                else
+                                    Console.WriteLine("Nu s-a putut actualiza fisierul");
+                            }
+                            else
+                                Console.WriteLine("- Nu ati introdus un numar valid -");
                         }
-                        break;
-                    default:
-                        Console.WriteLine("Optiune inexistenta");
+                        else
+                            Console.WriteLine("- Nu s-a gasit aceasta carte -");
                         break;
                 }
             } while (optiune.ToUpper() != "X");
-            Console.ReadKey();
+            return;
+        }
+        public static string Meniu()
+        {
+            Console.WriteLine("L. Listare carti");
+            Console.WriteLine("A. Adaugare carte");
+            Console.WriteLine("M. Modificare carte");
+            Console.WriteLine("X. Inchidere program");
+            Console.WriteLine("Alegeti o optiune");
+            return Console.ReadLine();
         }
         public static Carte CitireCarteTastatura()
         {
@@ -75,6 +87,7 @@ namespace Biblioteca
             Console.WriteLine("Introduceti editura:");
             string editura = Console.ReadLine();
             Carte c = new Carte(titlu, autor, editura);
+            //adauga si limba si genul
             return c;
         }
         public static Cititor CitireCititorTastatura()
@@ -103,6 +116,7 @@ namespace Biblioteca
             for (int i = 0; i < nrCarti; i++)
             {
                 Console.WriteLine(carti[i].ConversieLaSir());
+                Console.WriteLine();
             }
         }
         public static Carte CautareCarte(string titluMod, string autorMod, string edituraMod, int nrCarti, Carte[] carti)
